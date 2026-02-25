@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrepTracker – Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon">PT</div>
+    <span class="logo-text">PrepTracker</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html" class="nav-item"><span class="nav-icon">⬡</span><span>Dashboard</span></a></li>
+    <li><a href="skills.html" class="nav-item"><span class="nav-icon">◈</span><span>Skills</span></a></li>
+    <li><a href="goals.html" class="nav-item"><span class="nav-icon">◎</span><span>Daily Goals</span></a></li>
+    <li><a href="companies.html" class="nav-item"><span class="nav-icon">◷</span><span>Companies</span></a></li>
+    <li><a href="resume.html" class="nav-item active"><span class="nav-icon">◻</span><span>Resume</span></a></li>
+    <li><a href="notes.html" class="nav-item"><span class="nav-icon">◈</span><span>Notes</span></a></li>
+  </ul>
+  <div class="sidebar-footer">
+    <div class="user-avatar">AS</div>
+    <div class="user-info">
+      <span class="user-name">Aryan Singh</span>
+      <span class="user-role">B.Tech CSE · 2025</span>
+    </div>
+  </div>
+</nav>
+
+<main class="main-content">
+  <header class="top-header">
+    <div class="header-left">
+      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+      <div>
+        <h1 class="page-title">Resume & Profile</h1>
+        <p class="page-sub">Manage and track all versions of your resume</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <button class="btn-secondary">📥 Download</button>
+      <button class="btn-primary" onclick="document.getElementById('file-input').click()">⬆ Upload New</button>
+      <input type="file" id="file-input" style="display:none" accept=".pdf,.docx" onchange="uploadResume(this)">
+    </div>
+  </header>
+
+  <div class="resume-layout">
+    <!-- Left Panel -->
+    <div>
+      <!-- Upload Zone -->
+      <div class="resume-upload-card" style="margin-bottom:20px;">
+        <h3 style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:16px;">Upload Resume</h3>
+        <div class="upload-zone" onclick="document.getElementById('file-input').click()">
+          <div class="upload-icon">📄</div>
+          <div class="upload-title">Drop your resume here</div>
+          <div class="upload-sub">PDF or DOCX · Max 5MB</div>
+          <div style="margin-top:16px;">
+            <span class="btn-primary" style="font-size:12px;padding:8px 16px;border-radius:8px;display:inline-block">Browse Files</span>
+          </div>
+        </div>
+        <div id="upload-progress" style="display:none;margin-top:12px;">
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:#6b6b8a;margin-bottom:6px;">
+            <span>Uploading...</span><span id="upload-pct">0%</span>
+          </div>
+          <div class="skill-bar-bg" style="height:6px">
+            <div class="skill-bar-fill" id="upload-bar" style="background:#ff6b35;width:0%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Version History -->
+      <div class="resume-upload-card">
+        <h3 style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:16px;">Version History</h3>
+        <ul class="version-history" id="version-list">
+          <li class="version-item" onclick="selectVersion(0)" style="border:1px solid var(--accent);cursor:pointer">
+            <div class="ver-icon">📄</div>
+            <div class="ver-info">
+              <div class="ver-name">Resume_v3.2.pdf <span style="background:rgba(255,107,53,0.2);color:#ff6b35;padding:2px 8px;border-radius:6px;font-size:10px;font-weight:700">Current</span></div>
+              <div class="ver-date">Feb 15, 2026 · 342 KB</div>
+            </div>
+            <div style="display:flex;gap:6px">
+              <button style="background:none;border:none;color:#6b6b8a;cursor:pointer;font-size:14px" title="Download">↓</button>
+            </div>
+          </li>
+          <li class="version-item" style="cursor:pointer" onclick="selectVersion(1)">
+            <div class="ver-icon">📄</div>
+            <div class="ver-info">
+              <div class="ver-name">Resume_v3.1.pdf</div>
+              <div class="ver-date">Jan 22, 2026 · 318 KB</div>
+            </div>
+            <button style="background:none;border:none;color:#6b6b8a;cursor:pointer;font-size:14px">↓</button>
+          </li>
+          <li class="version-item" style="cursor:pointer">
+            <div class="ver-icon">📄</div>
+            <div class="ver-info">
+              <div class="ver-name">Resume_v3.0.pdf</div>
+              <div class="ver-date">Dec 10, 2025 · 305 KB</div>
+            </div>
+            <button style="background:none;border:none;color:#6b6b8a;cursor:pointer;font-size:14px">↓</button>
+          </li>
+          <li class="version-item" style="cursor:pointer">
+            <div class="ver-icon">📄</div>
+            <div class="ver-info">
+              <div class="ver-name">Resume_v2.5.pdf</div>
+              <div class="ver-date">Nov 5, 2025 · 290 KB</div>
+            </div>
+            <button style="background:none;border:none;color:#6b6b8a;cursor:pointer;font-size:14px">↓</button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Profile Tips -->
+      <div class="resume-upload-card" style="margin-top:20px;">
+        <h3 style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:16px;">Resume Score</h3>
+        <div id="resume-score-ring" style="position:relative;width:100px;height:100px;margin:0 auto 16px;">
+          <canvas id="resumeScore"></canvas>
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center">
+            <span style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#ff6b35">82</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="goal-item done"><span class="g-check">✓</span><span>Contact info complete</span></div>
+          <div class="goal-item done"><span class="g-check">✓</span><span>2+ internship experiences</span></div>
+          <div class="goal-item done"><span class="g-check">✓</span><span>Projects with impact metrics</span></div>
+          <div class="goal-item"><span class="g-check empty"></span><span>Add GitHub/portfolio link</span></div>
+          <div class="goal-item"><span class="g-check empty"></span><span>Quantify all achievements</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resume Preview -->
+    <div class="resume-preview">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+        <h3 style="font-family:'Syne',sans-serif;font-size:16px;font-weight:700;">Preview — Resume_v3.2</h3>
+        <div style="display:flex;gap:8px">
+          <button class="btn-secondary" style="font-size:12px;padding:6px 12px">Edit</button>
+          <button class="btn-primary" style="font-size:12px;padding:6px 12px">📥 Download</button>
+        </div>
+      </div>
+      <div class="resume-doc">
+        <h1>Aryan Singh</h1>
+        <p class="resume-meta">📧 aryan.singh@email.com | 📱 +91-9876543210 | 🔗 linkedin.com/in/aryansingh | 💻 github.com/aryansingh</p>
+        
+        <h2>Education</h2>
+        <p><strong>B.Tech in Computer Science & Engineering</strong> — IIT Bombay</p>
+        <p>2021 – 2025 | CGPA: 8.6 / 10</p>
+
+        <h2>Experience</h2>
+        <p><strong>Software Engineer Intern</strong> — Microsoft India</p>
+        <p style="font-size:11px;color:#888">May 2024 – Jul 2024</p>
+        <ul>
+          <li>Developed a real-time notification service handling 50K+ events/day, reducing latency by 35%</li>
+          <li>Built REST APIs with Node.js and TypeScript integrated with Azure Service Bus</li>
+          <li>Improved test coverage from 62% to 91% using Jest and automated CI/CD pipelines</li>
+        </ul>
+
+        <p style="margin-top:12px"><strong>Backend Developer Intern</strong> — Razorpay</p>
+        <p style="font-size:11px;color:#888">Dec 2023 – Jan 2024</p>
+        <ul>
+          <li>Optimized payment reconciliation system reducing processing time by 28%</li>
+          <li>Implemented idempotency keys for payment APIs improving reliability</li>
+        </ul>
+
+        <h2>Projects</h2>
+        <p><strong>PrepTracker</strong> — Placement Preparation Platform</p>
+        <ul>
+          <li>Built a full-stack web app with Node.js, Express, Drizzle ORM, and TailwindCSS</li>
+          <li>Implemented skill tracking, goal management, and analytics dashboards</li>
+          <li>500+ active users during placement season</li>
+        </ul>
+
+        <p style="margin-top:10px"><strong>Distributed Task Scheduler</strong></p>
+        <ul>
+          <li>Designed a distributed cron scheduler using Redis and Node.js worker threads</li>
+          <li>Supports horizontal scaling with consistent hashing; handles 10K+ tasks/min</li>
+        </ul>
+
+        <h2>Skills</h2>
+        <p><strong>Languages:</strong> JavaScript, TypeScript, Python, Java, C++</p>
+        <p><strong>Frameworks:</strong> Node.js, Express, React, Next.js</p>
+        <p><strong>Tools:</strong> Docker, Git, AWS, PostgreSQL, Redis, MongoDB</p>
+
+        <h2>Achievements</h2>
+        <ul>
+          <li>Codeforces Expert (rating 1750), LeetCode 250+ problems solved</li>
+          <li>2nd place — IIT Bombay Hackathon 2024</li>
+          <li>Merit Scholarship 2022, 2023</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+new Chart(document.getElementById('resumeScore'), {
+  type: 'doughnut',
+  data: {
+    datasets: [{ data: [82, 18], backgroundColor: ['#ff6b35','#1e1e35'], borderWidth: 0 }]
+  },
+  options: { cutout: '72%', plugins: { legend: { display: false }, tooltip: { enabled: false } } }
+});
+
+function uploadResume(input) {
+  if (!input.files[0]) return;
+  const prog = document.getElementById('upload-progress');
+  const bar = document.getElementById('upload-bar');
+  const pct = document.getElementById('upload-pct');
+  prog.style.display = 'block';
+  let p = 0;
+  const interval = setInterval(() => {
+    p += 15;
+    bar.style.width = p + '%';
+    pct.textContent = p + '%';
+    if (p >= 100) {
+      clearInterval(interval);
+      setTimeout(() => { prog.style.display = 'none'; }, 800);
+    }
+  }, 200);
+}
+</script>
+</body>
+</html>
