@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="auth.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrepTracker – Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon">PT</div>
+    <span class="logo-text">PrepTracker</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html" class="nav-item active"><span class="nav-icon">⬡</span><span>Dashboard</span></a></li>
+    <li><a href="skills.html" class="nav-item"><span class="nav-icon">◈</span><span>Skills</span></a></li>
+    <li><a href="goals.html" class="nav-item"><span class="nav-icon">◎</span><span>Daily Goals</span></a></li>
+    <li><a href="companies.html" class="nav-item"><span class="nav-icon">◷</span><span>Companies</span></a></li>
+    <li><a href="resume.html" class="nav-item"><span class="nav-icon">◻</span><span>Resume</span></a></li>
+    <li><a href="notes.html" class="nav-item"><span class="nav-icon">◈</span><span>Notes</span></a></li>
+  </ul>
+  <div class="sidebar-footer" style="flex-direction:column;align-items:flex-start;gap:8px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <div class="user-avatar">AS</div>
+      <div class="user-info">
+        <span class="user-name">Aryan Singh</span>
+        <span class="user-role">B.Tech CSE · 2025</span>
+      </div>
+    </div>
+    <button class="logout-btn" onclick="logout()">⎋ Sign Out</button>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<main class="main-content">
+  <header class="top-header">
+    <div class="header-left">
+      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+      <div>
+        <h1 class="page-title">Dashboard</h1>
+        <p class="page-sub">Welcome back, Aryan. You're on track!</p>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="streak-badge">🔥 12 Day Streak</div>
+      <div class="notif-btn">🔔</div>
+    </div>
+  </header>
+
+  <!-- Readiness Score Hero -->
+  <section class="hero-section">
+    <div class="readiness-card">
+      <div class="readiness-ring-wrap">
+        <canvas id="readinessChart" width="160" height="160"></canvas>
+        <div class="readiness-center">
+          <span class="readiness-num">74</span>
+          <span class="readiness-label">/ 100</span>
+        </div>
+      </div>
+      <div class="readiness-info">
+        <h2 class="readiness-title">Placement Readiness Score</h2>
+        <p class="readiness-desc">You're doing great! Focus on DSA and System Design to boost your score.</p>
+        <div class="readiness-pills">
+          <span class="pill pill-green">Technical: 78%</span>
+          <span class="pill pill-yellow">Aptitude: 65%</span>
+          <span class="pill pill-blue">Soft Skills: 82%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon" style="background:rgba(122,63,145,0.3)">🎯</div>
+        <div class="stat-val">18/25</div>
+        <div class="stat-lbl">Goals Today</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:rgba(94,206,160,0.2)">🏢</div>
+        <div class="stat-val">7</div>
+        <div class="stat-lbl">Companies Tracked</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:rgba(155,89,201,0.3)">📄</div>
+        <div class="stat-val">v3.2</div>
+        <div class="stat-lbl">Resume Version</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background:rgba(232,195,106,0.2)">⭐</div>
+        <div class="stat-val">42</div>
+        <div class="stat-lbl">Skills Tracked</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Charts Row -->
+  <section class="charts-row">
+    <div class="chart-card wide">
+      <div class="chart-header">
+        <h3>Weekly Activity</h3>
+        <span class="chart-sub">Goals completed per day</span>
+      </div>
+      <canvas id="weeklyChart" height="120"></canvas>
+    </div>
+    <div class="chart-card">
+      <div class="chart-header">
+        <h3>Skill Distribution</h3>
+        <span class="chart-sub">By category</span>
+      </div>
+      <canvas id="skillPieChart" height="180"></canvas>
+    </div>
+  </section>
+
+  <!-- Bottom Row -->
+  <section class="bottom-row">
+    <div class="list-card">
+      <div class="chart-header">
+        <h3>Today's Goals</h3>
+        <a href="goals.html" class="view-all">View All →</a>
+      </div>
+      <ul class="goal-list">
+        <li class="goal-item done"><span class="g-check">✓</span><span>Solve 3 LeetCode problems</span><span class="g-tag dsa">DSA</span></li>
+        <li class="goal-item done"><span class="g-check">✓</span><span>Read OS chapter 4</span><span class="g-tag cs">CS</span></li>
+        <li class="goal-item"><span class="g-check empty"></span><span>Mock interview practice</span><span class="g-tag hr">HR</span></li>
+        <li class="goal-item"><span class="g-check empty"></span><span>System Design: Load Balancing</span><span class="g-tag sd">SD</span></li>
+        <li class="goal-item done"><span class="g-check">✓</span><span>Aptitude: Time & Work</span><span class="g-tag apt">APT</span></li>
+      </ul>
+    </div>
+
+    <div class="list-card">
+      <div class="chart-header">
+        <h3>Company Pipeline</h3>
+        <a href="companies.html" class="view-all">View All →</a>
+      </div>
+      <ul class="company-list">
+        <li class="company-item">
+          <div class="co-logo g1">G</div>
+          <div class="co-info"><span class="co-name">Google</span><span class="co-role">SDE Intern</span></div>
+          <span class="co-status status-applied">Applied</span>
+        </li>
+        <li class="company-item">
+          <div class="co-logo g2">M</div>
+          <div class="co-info"><span class="co-name">Microsoft</span><span class="co-role">FTE SDE</span></div>
+          <span class="co-status status-prep">Prep</span>
+        </li>
+        <li class="company-item">
+          <div class="co-logo g3">A</div>
+          <div class="co-info"><span class="co-name">Amazon</span><span class="co-role">SDE-1</span></div>
+          <span class="co-status status-interview">Interview</span>
+        </li>
+        <li class="company-item">
+          <div class="co-logo g4">F</div>
+          <div class="co-info"><span class="co-name">Flipkart</span><span class="co-role">SDE Intern</span></div>
+          <span class="co-status status-prep">Prep</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="chart-card radar-card">
+      <div class="chart-header">
+        <h3>Skill Radar</h3>
+        <span class="chart-sub">vs Target</span>
+      </div>
+      <canvas id="radarChart" height="200"></canvas>
+    </div>
+  </section>
+</main>
+
+<script>
+// Readiness doughnut
+new Chart(document.getElementById('readinessChart'), {
+  type: 'doughnut',
+  data: {
+    datasets: [{
+      data: [74, 26],
+      backgroundColor: ['#7A3F91', '#1e1e2e'],
+      borderWidth: 0,
+      circumference: 300,
+      rotation: -150
+    }]
+  },
+  options: { cutout: '78%', plugins: { legend: { display: false }, tooltip: { enabled: false } } }
+});
+
+// Weekly bar
+new Chart(document.getElementById('weeklyChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+    datasets: [{
+      label: 'Goals Done',
+      data: [12, 18, 9, 22, 16, 25, 18],
+      backgroundColor: ['#7A3F91','#7A3F91','#6AABDF','#7A3F91','#7A3F91','#C59DD9','#7A3F91'],
+      borderRadius: 8,
+      borderSkipped: false
+    }]
+  },
+  options: {
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false }, ticks: { color: '#888' } },
+      y: { grid: { color: '#1e1e2e' }, ticks: { color: '#888' } }
+    }
+  }
+});
+
+// Skill pie
+new Chart(document.getElementById('skillPieChart'), {
+  type: 'pie',
+  data: {
+    labels: ['DSA', 'System Design', 'Aptitude', 'Soft Skills', 'CS Fundamentals'],
+    datasets: [{
+      data: [35, 20, 18, 15, 12],
+      backgroundColor: ['#7A3F91','#C59DD9','#6AABDF','#E8C36A','#3b82f6'],
+      borderWidth: 2,
+      borderColor: '#0f0f1a'
+    }]
+  },
+  options: {
+    plugins: {
+      legend: { position: 'bottom', labels: { color: '#C59DD9', boxWidth: 12, padding: 10 } }
+    }
+  }
+});
+
+// Radar
+new Chart(document.getElementById('radarChart'), {
+  type: 'radar',
+  data: {
+    labels: ['DSA','SD','OS','DBMS','Networking','Aptitude'],
+    datasets: [
+      { label: 'Current', data: [75, 55, 70, 80, 60, 65], backgroundColor: 'rgba(255,107,53,0.2)', borderColor: '#7A3F91', pointBackgroundColor: '#7A3F91' },
+      { label: 'Target', data: [90, 85, 85, 90, 80, 85], backgroundColor: 'rgba(168,85,247,0.1)', borderColor: '#C59DD9', pointBackgroundColor: '#C59DD9', borderDash: [5,5] }
+    ]
+  },
+  options: {
+    scales: {
+      r: { angleLines: { color: '#2a2a3e' }, grid: { color: '#2a2a3e' }, pointLabels: { color: '#C59DD9' }, ticks: { display: false }, min: 0, max: 100 }
+    },
+    plugins: { legend: { labels: { color: '#C59DD9', boxWidth: 10 } } }
+  }
+});
+</script>
+<script src="theme-switcher.js"></script>
+</body>
+</html>
