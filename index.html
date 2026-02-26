@@ -1,0 +1,511 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrepTracker — Ace Your Placement Season</title>
+    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&amp;family=Cabinet+Grotesk:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=DM+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+   
+    </head>
+    <body>
+    
+    <div class="cursor" id="cursor" style="transform: translate(-50%, -50%) scale(1); left: 1181px; top: 425px;"></div>
+    <div class="cursor-ring" id="cursor-ring" style="left: 1181px; top: 425px; width: 36px; height: 36px;"></div>
+    
+    <!-- ===================== NAVBAR ===================== -->
+    <nav id="navbar" class="scrolled">
+      <a href="landing.html" class="nav-logo">
+        <div class="nav-logo-mark">PT</div>
+        <span class="nav-logo-text">PrepTracker</span>
+      </a>
+      <div class="nav-links-center">
+        <a href="#pages" class="nav-link">Pages</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#faq" class="nav-link active">FAQ</a>
+      </div>
+      <div class="nav-right">
+        <a href="login.html" class="btn-nav-ghost">Sign In</a>
+        <a href="register.html" class="btn-nav-cta">Get Started →</a>
+      </div>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#pages" class="nav-link" onclick="toggleMenu()">Pages</a>
+      <a href="#features" class="nav-link" onclick="toggleMenu()">Features</a>
+      <a href="#about" class="nav-link" onclick="toggleMenu()">About</a>
+      <a href="#faq" class="nav-link active" onclick="toggleMenu()">FAQ</a>
+      <a href="register.html" class="btn-nav-cta" style="text-align:center;margin-top:8px">Get Started →</a>
+    </div>
+    
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="home">
+      <div class="hero-grid"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot">🎯</span>
+        Placement Season 2025 · Ready to Start?
+      </div>
+    
+      <h1 class="hero-headline">
+        <span class="line-orange">Prepare Smarter.</span><br>
+        <span class="line-dim">Land Better.</span>
+      </h1>
+    
+      <p class="hero-sub">
+        The all-in-one placement prep platform that helps you track skills, crush daily goals, manage company pipelines, and walk into interviews with unshakeable confidence.
+      </p>
+    
+      <div class="hero-cta-row">
+        <a href="register.html" class="btn-hero-primary">
+          Open Dashboard <span class="arrow">→</span>
+        </a>
+        <a href="#pages" class="btn-hero-ghost"><span>🗺</span> Explore Pages</a>
+      </div>
+    
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">500+</div>
+          <div class="hero-stat-lbl">Active Students</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">6</div>
+          <div class="hero-stat-lbl">Core Modules</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">94%</div>
+          <div class="hero-stat-lbl">Placement Rate</div>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">42+</div>
+          <div class="hero-stat-lbl">Skills Tracked</div>
+        </div>
+      </div>
+    
+      <div class="hero-preview">
+        <div class="hero-preview-glow"></div>
+        <div class="hero-preview-frame">
+          <div class="preview-topbar">
+            <div class="preview-dots">
+              <div class="preview-dot" style="background:#ff5f57"></div>
+              <div class="preview-dot" style="background:#febc2e"></div>
+              <div class="preview-dot" style="background:#28c840"></div>
+            </div>
+            <div class="preview-url">preptracker.app/dashboard</div>
+          </div>
+          <div class="preview-body">
+            <div class="preview-sidebar">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:24px;padding:0 8px">
+                <div style="width:28px;height:28px;background:#7A3F91;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:white">PT</div>
+                <span style="font-size:13px;font-weight:700">PrepTracker</span>
+              </div>
+              <div class="preview-nav-item active">⬡ Dashboard</div>
+              <div class="preview-nav-item">◈ Skills</div>
+              <div class="preview-nav-item">◎ Goals</div>
+              <div class="preview-nav-item">◷ Companies</div>
+              <div class="preview-nav-item">◻ Resume</div>
+              <div class="preview-nav-item">◈ Notes</div>
+            </div>
+            <div class="preview-main">
+              <div class="preview-title">Dashboard</div>
+              <div class="preview-cards">
+                <div class="preview-card">
+                  <div class="preview-card-num">74</div>
+                  <div class="preview-card-lbl">Readiness Score</div>
+                </div>
+                <div class="preview-card">
+                  <div class="preview-card-num">18/25</div>
+                  <div class="preview-card-lbl">Goals Today</div>
+                </div>
+                <div class="preview-card">
+                  <div class="preview-card-num">7</div>
+                  <div class="preview-card-lbl">Companies</div>
+                </div>
+                <div class="preview-card">
+                  <div class="preview-card-num">🔥12</div>
+                  <div class="preview-card-lbl">Day Streak</div>
+                </div>
+              </div>
+              <div class="preview-chart-row">
+                <div class="preview-chart-box">
+                  <div class="preview-chart-lbl">Weekly Activity</div>
+                  <div class="preview-bars">
+                    <div class="preview-bar" style="height:55%"></div>
+                    <div class="preview-bar" style="height:80%;opacity:1"></div>
+                    <div class="preview-bar" style="height:40%"></div>
+                    <div class="preview-bar" style="height:95%;opacity:1;background:#C59DD9"></div>
+                    <div class="preview-bar" style="height:65%"></div>
+                    <div class="preview-bar" style="height:100%;background:#a855f7;opacity:0.8"></div>
+                    <div class="preview-bar" style="height:75%"></div>
+                  </div>
+                </div>
+                <div class="preview-chart-box">
+                  <div class="preview-chart-lbl">Readiness</div>
+                  <div class="preview-donut">
+                    <div class="preview-donut-inner">74%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===================== PAGES SECTION ===================== -->
+    <section class="pages-section" id="pages">
+      <div class="section-label">All Pages</div>
+      <h2 class="section-title">Every tool you need,<br>one platform.</h2>
+      <p class="section-sub">Six purpose-built modules that work together to cover every aspect of your placement journey.</p>
+    
+      <div class="pages-grid">
+        <a href="login.html" class="page-card reveal visible">
+          <div class="page-card-icon" style="background:rgba(122,63,145,0.15)">⬡</div>
+          <div class="page-card-title">Dashboard <span class="page-card-arrow">→</span></div>
+          <p class="page-card-desc">Your central command. See your readiness score, weekly activity, skill radar, and daily goal progress — all at a glance.</p>
+          <div class="page-card-tags">
+            <span class="page-tag" style="color:#7A3F91;background:rgba(122,63,145,0.1);border-color:rgba(122,63,145,0.2)">Readiness Score</span>
+            <span class="page-tag">Radar Chart</span>
+            <span class="page-tag">Pie Chart</span>
+            <span class="page-tag">Bar Chart</span>
+          </div>
+        </a>
+    
+        <a href="login.html" class="page-card reveal visible" style="transition-delay:0.07s">
+          <div class="page-card-icon" style="background:rgba(168,85,247,0.15)">◈</div>
+          <div class="page-card-title">Skills Tracker <span class="page-card-arrow">→</span></div>
+          <p class="page-card-desc">Track DSA, System Design, CS Fundamentals, Aptitude, and Soft Skills with beautiful progress bars, trend lines, and topic checklists.</p>
+          <div class="page-card-tags">
+            <span class="page-tag" style="color:#a855f7;background:rgba(168,85,247,0.1);border-color:rgba(168,85,247,0.2)">Progress Bars</span>
+            <span class="page-tag">Trend Chart</span>
+            <span class="page-tag">Checklist</span>
+          </div>
+        </a>
+    
+        <a href="login.html" class="page-card reveal visible" style="transition-delay:0.14s">
+          <div class="page-card-icon" style="background:rgba(245,158,11,0.15)">◎</div>
+          <div class="page-card-title">Daily Goals <span class="page-card-arrow">→</span></div>
+          <p class="page-card-desc">Kanban-style goal management with completion tracking, a GitHub-style activity heatmap, and a streak counter to keep you consistent.</p>
+          <div class="page-card-tags">
+            <span class="page-tag" style="color:#f59e0b;background:rgba(245,158,11,0.1);border-color:rgba(245,158,11,0.2)">Kanban Board</span>
+            <span class="page-tag">Heatmap</span>
+            <span class="page-tag">Streak</span>
+          </div>
+        </a>
+    
+        <a href="login.html" class="page-card reveal visible" style="transition-delay:0.21s">
+          <div class="page-card-icon" style="background:rgba(94,206,160,0.15)">◷</div>
+          <div class="page-card-title">Companies <span class="page-card-arrow">→</span></div>
+          <p class="page-card-desc">Track every company in your pipeline — from prep to offer. Funnel chart, status pie, prep progress bars, and company-specific notes.</p>
+          <div class="page-card-tags">
+            <span class="page-tag" style="color:#5ECEA0;background:rgba(94,206,160,0.1);border-color:rgba(94,206,160,0.2)">Pipeline</span>
+            <span class="page-tag">Funnel Chart</span>
+            <span class="page-tag">Status Pie</span>
+          </div>
+        </a>
+    
+        <a href="login.html" class="page-card reveal visible" style="transition-delay:0.28s">
+          <div class="page-card-icon" style="background:rgba(59,130,246,0.15)">◻</div>
+          <div class="page-card-title">Resume &amp; Profile <span class="page-card-arrow">→</span></div>
+          <p class="page-card-desc">Upload, preview, and manage all versions of your resume. Get an AI-powered resume score and track what needs improvement.</p>
+          <div class="page-card-tags">
+            <span class="page-tag" style="color:#3b82f6;background:rgba(59,130,246,0.1);border-color:rgba(59,130,246,0.2)">Version History</span>
+            <span class="page-tag">Score Ring</span>
+            <span class="page-tag">Preview</span>
+          </div>
+        </a>
+    
+        <a href="login.html" class="page-card reveal visible" style="transition-delay:0.35s">
+          <div class="page-card-icon" style="background:rgba(34,197,94,0.15)">✎</div>
+          <div class="page-card-title">Prep Notes <span class="page-card-arrow">→</span></div>
+          <p class="page-card-desc">Your personal knowledge base. Write, tag, and search preparation notes across all categories. Auto-saved with full editor.</p>
+          <div class="page-card-tags">
+            <span class="page-tag" style="color:#22c55e;background:rgba(34,197,94,0.1);border-color:rgba(34,197,94,0.2)">Auto-save</span>
+            <span class="page-tag">Tag Filter</span>
+            <span class="page-tag">Search</span>
+          </div>
+        </a>
+      </div>
+    </section>
+    
+    <!-- ===================== FEATURES ===================== -->
+    <section class="features-section" id="features">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title">Built for serious<br>placement prep.</h2>
+    
+      <div class="features-grid">
+        <div class="feature-item reveal visible">
+          <div class="feature-num">01</div>
+          <div class="feature-icon-wrap" style="background:rgba(122,63,145,0.15)">🎯</div>
+          <div class="feature-title">Set Your Target</div>
+          <p class="feature-desc">Define your dream companies, target roles, and skill benchmarks. PrepTracker builds a personalized roadmap around your goals.</p>
+        </div>
+        <div class="feature-item reveal visible" style="transition-delay:0.1s">
+          <div class="feature-num">02</div>
+          <div class="feature-icon-wrap" style="background:rgba(168,85,247,0.15)">📋</div>
+          <div class="feature-title">Track Daily Progress</div>
+          <p class="feature-desc">Add daily goals, mark them done, and watch your streak grow. The heatmap shows exactly how consistent you've been.</p>
+        </div>
+        <div class="feature-item reveal visible" style="transition-delay:0.2s">
+          <div class="feature-num">03</div>
+          <div class="feature-icon-wrap" style="background:rgba(94,206,160,0.15)">📈</div>
+          <div class="feature-title">Visualize Growth</div>
+          <p class="feature-desc">Charts, radar diagrams, and trend lines show exactly where you stand vs your targets. No guesswork — just clarity.</p>
+        </div>
+        <div class="feature-item reveal visible">
+          <div class="feature-num">04</div>
+          <div class="feature-icon-wrap" style="background:rgba(245,158,11,0.15)">🏢</div>
+          <div class="feature-title">Company-wise Prep</div>
+          <p class="feature-desc">Maintain separate notes and prep progress for each company. Know exactly how ready you are for each interview.</p>
+        </div>
+        <div class="feature-item reveal visible" style="transition-delay:0.1s">
+          <div class="feature-num">05</div>
+          <div class="feature-icon-wrap" style="background:rgba(59,130,246,0.15)">📄</div>
+          <div class="feature-title">Resume Version Control</div>
+          <p class="feature-desc">Upload and manage every version of your resume. Get a readiness score and know exactly what to improve before sending it out.</p>
+        </div>
+        <div class="feature-item reveal visible" style="transition-delay:0.2s">
+          <div class="feature-num">06</div>
+          <div class="feature-icon-wrap" style="background:rgba(34,197,94,0.15)">⚡</div>
+          <div class="feature-title">Smart Readiness Score</div>
+          <p class="feature-desc">An analytics-driven score aggregates your skill levels, goal completion rate, and activity to give a single readiness number.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about">
+      <div class="about-section">
+        <div class="about-visual reveal visible">
+          <div class="about-card-main">
+            <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;margin-bottom:6px">Our Mission</div>
+            <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Eliminate the anxiety of placement season by giving students complete visibility into their preparation journey.</p>
+            <div class="about-metric-grid">
+              <div class="about-metric">
+                <div class="about-metric-num">2025</div>
+                <div class="about-metric-lbl">Founded</div>
+              </div>
+              <div class="about-metric">
+                <div class="about-metric-num">500+</div>
+                <div class="about-metric-lbl">Students Helped</div>
+              </div>
+              <div class="about-metric">
+                <div class="about-metric-num">94%</div>
+                <div class="about-metric-lbl">Placement Rate</div>
+              </div>
+              <div class="about-metric">
+                <div class="about-metric-num">30+</div>
+                <div class="about-metric-lbl">Partner Colleges</div>
+              </div>
+            </div>
+          </div>
+          <div class="about-float-badge">
+            <span class="badge-icon">🏆</span>
+            <div>
+              <div style="font-size:13px;font-weight:700">Best EdTech Tool</div>
+              <div style="font-size:11px;opacity:0.8">IIT Bombay Hackathon 2024</div>
+            </div>
+          </div>
+        </div>
+    
+        <div class="about-content reveal visible" style="transition-delay:0.15s">
+          <div class="section-label">About Us</div>
+          <h2 class="section-title">Built by students,<br>for students.</h2>
+          <p class="about-body">PrepTracker was born from a simple observation: most students spend their placement season worrying instead of preparing. They don't know what to learn, can't track what they've done, and have no way to measure how ready they actually are.</p>
+          <p class="about-body">We built PrepTracker to change that. A structured, data-driven preparation platform that gives you complete visibility, keeps you accountable, and helps you walk into every interview knowing exactly where you stand.</p>
+          <ul class="about-list">
+            <li class="about-list-item">
+              <span class="about-list-icon">✓</span>
+              <span><strong style="color:var(--text)">No more scattered notes</strong> — everything about your prep lives in one organized, searchable place.</span>
+            </li>
+            <li class="about-list-item">
+              <span class="about-list-icon">✓</span>
+              <span><strong style="color:var(--text)">Data-driven readiness</strong> — stop guessing. Your 0–100 readiness score tells you exactly where you stand.</span>
+            </li>
+            <li class="about-list-item">
+              <span class="about-list-icon">✓</span>
+              <span><strong style="color:var(--text)">Company-level precision</strong> — know your preparation percentage for each company in your pipeline.</span>
+            </li>
+            <li class="about-list-item">
+              <span class="about-list-icon">✓</span>
+              <span><strong style="color:var(--text)">Built for consistency</strong> — streaks, heatmaps, and daily goals make showing up every day feel rewarding.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    
+      <!-- ===================== TEAM ===================== -->
+      <div class="team-section">
+        <div class="section-label reveal visible">The Team</div>
+        <h2 class="section-title reveal visible">People behind<br>the platform.</h2>
+    
+        <div class="team-grid">
+    
+          <div class="team-card reveal visible">
+            <div class="team-avatar" style="background:linear-gradient(135deg,#7A3F91,#C59DD9)">NP</div>
+            <div class="team-name">Nikita Patle</div>
+            <div class="team-role">Frontend Developer</div>
+            <div class="team-tags">
+              <span class="team-tag">HTML</span>
+              <span class="team-tag">CSS</span>
+              <span class="team-tag">JavaScript</span>
+            </div>
+          </div>
+    
+          <div class="team-card reveal visible" style="transition-delay:0.1s">
+            <div class="team-avatar" style="background:linear-gradient(135deg,#9B59C9,#a855f7)">PR</div>
+            <div class="team-name">Priyanshu Ranjan</div>
+            <div class="team-role">Frontend Developer</div>
+            <div class="team-tags">
+              <span class="team-tag">HTML</span>
+              <span class="team-tag">CSS</span>
+              <span class="team-tag">JavaScript</span>
+            </div>
+          </div>
+    
+          <div class="team-card reveal visible" style="transition-delay:0.2s">
+            <div class="team-avatar" style="background:linear-gradient(135deg,#5ECEA0,#22c55e)">AS</div>
+            <div class="team-name">Aliya Sarvar</div>
+            <div class="team-role">Frontend Developer</div>
+            <div class="team-tags">
+              <span class="team-tag">HTML</span>
+              <span class="team-tag">CSS</span>
+              <span class="team-tag">JavaScript</span>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===================== FAQ ===================== -->
+    <section class="faq-section" id="faq">
+      <div class="faq-inner">
+        <div class="section-label" style="justify-content:center">FAQ</div>
+        <h2 class="section-title reveal visible" style="text-align:center">Questions? We got you.</h2>
+        <p class="section-sub reveal visible" style="text-align:center;margin:0 auto">Everything you need to know about PrepTracker before you start.</p>
+    
+        <div class="faq-list">
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question"><span>What exactly is PrepTracker and who is it for?</span><span class="faq-icon">+</span></div>
+            <div class="faq-answer">PrepTracker is a web-based placement preparation platform designed specifically for engineering and tech students preparing for campus and off-campus placements. If you have interviews coming up and want a structured, data-driven way to prepare across DSA, System Design, aptitude, soft skills, and company research — PrepTracker is built for you.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question"><span>Is PrepTracker free to use?</span><span class="faq-icon">+</span></div>
+            <div class="faq-answer">Yes! PrepTracker's core features — skill tracking, daily goals, company pipeline, notes, and basic analytics — are completely free. We believe every student deserves access to quality preparation tools regardless of budget. Premium features like AI-powered resume scoring and advanced analytics are available in our upcoming Pro plan.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question"><span>How is the Readiness Score calculated?</span><span class="faq-icon">+</span></div>
+            <div class="faq-answer">The Readiness Score (0–100) is a weighted aggregate of multiple factors: your technical skill levels (DSA, System Design, CS fundamentals), aptitude and soft skill scores, daily goal completion rate over the past 30 days, consistency streak, and company-specific preparation percentages. Each component is weighted based on its typical importance in placement interviews.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question"><span>Can I track preparation for multiple companies simultaneously?</span><span class="faq-icon">+</span></div>
+            <div class="faq-answer">Absolutely. The Companies module is specifically designed for this. You can add as many companies as you want, set their status (Preparing → Applied → Interview → Offer), track individual prep progress per company, add company-specific notes and focus topics, and see your entire pipeline visualized as a funnel chart.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question"><span>Does my data persist between sessions?</span><span class="faq-icon">+</span></div>
+            <div class="faq-answer">Yes. PrepTracker uses your browser's local storage to persist your goals, notes, and other data between sessions. In the full backend version (built with Node.js, Express, and PostgreSQL via Drizzle ORM), all data is stored in a proper database and synced across devices when you're logged in.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question"><span>What file formats are supported for resume upload?</span><span class="faq-icon">+</span></div>
+            <div class="faq-answer">PrepTracker supports PDF and DOCX formats for resume uploads, with a maximum file size of 5MB per upload. The platform automatically creates a version history so you can always go back to a previous version, download any version, or set a new default. PDF files render directly in the preview panel.</div>
+          </div>
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-question"><span>Can I use PrepTracker on mobile?</span><span class="faq-icon">+</span></div>
+            <div class="faq-answer">Yes! PrepTracker is fully responsive and works on mobile and tablet devices. The sidebar collapses into a hamburger menu, layouts adapt to smaller screens, and all charts and interactions are touch-friendly. We recommend using it on desktop for the full dashboard experience, but mobile works great for checking goals and notes on the go.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===================== CTA ===================== -->
+    <section class="cta-section">
+      <div class="cta-inner">
+        <div class="section-label" style="justify-content:center">Ready?</div>
+        <h2 class="cta-title reveal">Stop wondering.<br>Start <span style="color:var(--accent)">tracking.</span></h2>
+        <p class="cta-sub reveal" style="transition-delay:0.1s">Your placement season is too important to leave to chance. Jump into PrepTracker and know exactly where you stand — starting today.</p>
+        <div class="cta-buttons reveal" style="transition-delay:0.2s">
+          <a href="register.html" class="btn-hero-primary">Open Dashboard <span class="arrow">→</span></a>
+          <a href="login.html" class="btn-hero-ghost">Track Your Skills</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-brand-logo">
+            <div class="nav-logo-mark" style="width:36px;height:36px;font-size:13px">PT</div>
+            <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:17px">PrepTracker</span>
+          </div>
+          <p class="footer-tagline">The structured placement preparation platform that helps engineering students track skills, goals, and company pipelines in one place.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social">𝕏</a>
+            <a href="#" class="footer-social">in</a>
+            <a href="#" class="footer-social">⭐</a>
+            <a href="#" class="footer-social">📧</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">App Pages</div>
+          <ul class="footer-links">
+            <li><a href="login.html">⬡ Dashboard</a></li>
+            <li><a href="login.html">◈ Skills Tracker</a></li>
+            <li><a href="login.html">◎ Daily Goals</a></li>
+            <li><a href="login.html">◷ Companies</a></li>
+            <li><a href="login.html">◻ Resume</a></li>
+            <li><a href="login.html">✎ Prep Notes</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <ul class="footer-links">
+            <li><a href="#features">How It Works</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#">DSA Roadmap</a></li>
+            <li><a href="#">Interview Tips</a></li>
+            <li><a href="#">Company Guides</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Tech Stack</div>
+          <ul class="footer-links">
+            <li><a href="#">Node.js + Express</a></li>
+            <li><a href="#">PostgreSQL + Drizzle</a></li>
+            <li><a href="#">HTML5 + TailwindCSS</a></li>
+            <li><a href="#">Vite + TypeScript</a></li>
+            <li><a href="#">Chart.js</a></li>
+            <li><a href="#">PostCSS</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="footer-bottom">
+        <span>© 2025 PrepTracker. Built with ❤️ for placement warriors.</span>
+        <div class="footer-badge">
+          <span class="footer-badge-dot"></span>
+          All systems operational
+        </div>
+        <div style="display:flex;gap:16px">
+          <a href="#" style="color:var(--text-muted);text-decoration:none;font-size:13px">Privacy Policy</a>
+          <a href="#" style="color:var(--text-muted);text-decoration:none;font-size:13px">Terms of Service</a>
+        </div>
+      </div>
+    </footer>
+    
+   
+  <script src="script.js"> </script>     
+    
+    </body></html>
